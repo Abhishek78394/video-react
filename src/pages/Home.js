@@ -24,12 +24,11 @@ const Home = () => {
         socket.off('joined_room', handleRoomJoined)
 
         }
-    }, [socket,handleRoomJoined])
+    }, [ socket ])
 
 
     const handleJoinRoom = () => {
-        socket.emit('join_room', { roomId: room, emailId: email })
-
+        socket.emit('join_room',{roomId:room,emailId:email});
     }
     return (
         <>

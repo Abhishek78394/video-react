@@ -9,7 +9,7 @@ export const useSocket = ()=>{
 }
 
 export const SocketProvider = (props)=> {
-    const socket = useMemo(()=>io('http://localhost:8001'),[])
+    const socket = useMemo(()=>io('https://video-stream-dlpb.onrender.com'),[])
     return(
         <SocketContext.Provider value={{socket}}>
             {props.children}
