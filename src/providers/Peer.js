@@ -9,7 +9,6 @@ export const usePeer = () => {
 export const PeerProvider = (props) => {
   const [remoteStream, setRemoteStream] = useState(null);
 
-  // Create a memoized peer connection instance
   const peer = useMemo(() => {
     const configuration = {
       iceServers: [
@@ -43,12 +42,9 @@ export const PeerProvider = (props) => {
 
   const sendStream = async (stream) => {
     if (stream) {
-        console.log(stream,"stream")
       const tracks = stream.getTracks();
-  
       tracks.forEach((track) => {
         const sender = peer.getSenders().find((s) => s.track === track);
-  
         if (sender) {
           console.log(sender,"sender")
           peer.removeTrack(sender);
